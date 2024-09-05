@@ -1,0 +1,104 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel=stylesheet href="{% static "index/home.css" %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://kit.fontawesome.com/92caf5e444.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Playwrite+HR:wght@100..400&display=swap" rel="stylesheet">
+    <title>Home</title>
+</head>
+<body>
+
+    {% comment %} left sidebar {% endcomment %}
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
+    <div class="header">
+        <div class="logo">Instagram
+        </div>
+        <center><a href={{user.profile_img.url}}><img class="rounded" src={{user.profile_img.url}} /></a>
+            <p class="username">@{{user.user}}</p></center>
+        <div class="Navbar">
+            <a href='{% url 'home2'%}'><li class="nav-items">
+                <i class="fa-solid fa-house fa-beat"></i><p>Feed</p></li></a>
+            <a href='{% url 'addpost'%}'><li class="nav-items">
+                <svg class="mySvg" xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+                  </svg>
+                Add Post</li></a>
+            <a href='/profile2/{{user.user}}'><li class="nav-items">
+                <svg class="mySvg" xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                  </svg>
+                Profile</li></a>
+                <a href={% url 'settings'%}><li class="nav-items">
+                <svg class="mySvg" xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-sliders" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1z"/>
+                  </svg>Settings</li></a>
+            <a href={% url 'logout'%}><li class="nav-items">
+                <svg class="mySvg" xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
+                    <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
+                  </svg>
+                  LogOut</li></a>
+        </div>
+    </div> 
+
+    
+    {% comment %} right sidebar {% endcomment %}
+    <div class='rightsidebar'>
+        <p>Latest Posts</p>
+    </div>
+
+    <div class="post-frame">
+        {% for post in posts%}
+        <div class="post-view">
+            <div class="post-head">
+                <a href='/profile2/{{post.user}}'>{{post.user}}</a>
+            </div>
+            <div class="post-content">
+                <img class="fit-content" src="{{post.image.url}}" />
+            </div>
+            <div class="post-footer">
+                <a href="like-post?post_id={{post.id}}" class="flex items-center space-x-2">
+                    <p>&hearts;</p>
+                </a>
+                    {% if post.no_likes == 0 %}
+                    No Likes
+                    {% elif post.no_likes == 1%}
+                    Liked by {{post.no_likes}} person
+                    {% else %}
+                    Liked by {{post.no_likes}} people
+                    {% endif %}
+                <hr class="in-line">
+                <p><b class="bold">{{post.user}}</b> - {{post.caption}}</p>
+            </div>
+        </div>
+        {% comment %} <hr> {% endcomment %}
+        {%endfor%}
+    </div>
+
+    {% comment %} right sidebar {% endcomment %}
+    <div class="right-sidebar">
+        <div class="user-follow">
+            <h1>Suggested for you</h1>
+            {% for suggestion in suggestions_username_profile_list %}
+            <div class="users-list">
+                <img src="{{suggestion.profile_img.url}}" width="44px" height="44px" class="rounded2">
+                <div class="sug-user">{{suggestion.user}}<div class="subhead">Suggested for you</div></div>
+                <div class="view-user"><a class="aqua" href="/profile2/{{suggestion.user}}">view user</a></div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+    <script src="{% static 'assets/js/cursor.js' %}"></script>
+    <script src="{% static 'assets/js/heart.js' %}"></script>
+</body>
+</html>

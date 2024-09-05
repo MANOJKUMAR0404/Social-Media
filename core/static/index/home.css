@@ -1,0 +1,345 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight:normal;
+}
+
+body{
+    height: 100vh;
+    background-color: #ffffff;
+    cursor:none;
+    font-family: "Outfit";
+}
+
+.cursor-dot{
+    width: 5px;
+    height: 5px;
+    background-color: black;
+}
+.cursor-outline{
+    width: 30px;
+    height: 30px;
+    border: 2px solid hsla(0, 0%, 8%, 0.5);
+}
+
+.cursor-dot , .cursor-outline{
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.header{
+    border-right: 1px solid rgb(160, 158, 158);
+    width: 270px;
+    height: 100vh;
+    position: fixed;
+}
+
+.logo{
+    font-size: 30px;
+    width: 200px; /* Adjust the width as needed */
+    height: 50px; /* Adjust the height as needed */
+    margin-top: 50px;
+    margin-left: 60px;
+}
+
+.Navbar{
+    position: relative;
+    top: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: grid;
+    grid-template-rows: repeat(5,50px);
+    grid-template-columns: 1fr;
+}
+
+.rounded{
+    border: 1px solid black;
+    border-radius: 50%;
+    width: 140px;
+    height: 150px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.nav-items{
+    color: black;
+    font-size: 20px;
+    display: grid;
+    grid-template-rows: 40px;
+    grid-template-columns: 50px 1fr;
+    padding-left: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-items:hover{
+    background-color: rgb(233, 228, 228);
+    border-radius: 10px;
+}
+
+
+.highlight{
+    background-color: rgb(233, 228, 228);
+    border-radius: 10px;
+}
+
+.username{
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.rightsidebar{
+    position: absolute;
+    font-size: 20px;
+    top: 30px;
+    left: 350px;
+}
+.post-frame{
+    position: absolute;
+    top: 70px;
+    left: 350px;
+    border: 1px solid white;
+    width: 600px;
+    height: 1500px;
+}
+
+.post-view{
+    border-left:none;
+    border-right: none;
+    border-bottom: none;
+    width: 500px;
+    height: 440px;
+    margin: 12px 0px 12px 25px;
+    border-radius: 10px;
+}
+
+.post-head{
+    border: 1px solid rgb(206, 202, 202);
+    width: auto;
+    height: 50px;
+    padding: 10px;
+    border-radius: 10px 10px 0px 0px;
+    text-transform: capitalize;
+}
+
+
+.post-content{
+    width: auto;
+    height: 300px;
+    border-left: 1px solid rgb(206, 202, 202);
+    border-right: 1px solid rgb(206, 202, 202);
+}
+
+.fit-content{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.post-footer{
+    border: 1px solid rgb(206, 202, 202);
+    width: auto;
+    height: 80px;
+    border-radius: 0px 0px 10px 10px;
+    border-top: none;
+    padding-left: 10px;
+}
+
+
+.bold{
+    font-size: 20px;
+}
+
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    cursor: none;
+    color: black;
+}
+
+hr{
+    width: 500px;
+    margin-left: 25px;
+}
+
+.in-line{
+    margin-left: -10px;
+}
+
+/* .rightsidebar */
+
+.right-sidebar{
+    border-left: 1px solid rgb(160, 158, 158);
+    width: 300px;
+    height: 100vh;
+    position: fixed;
+    right: 0px;
+}
+
+.user-follow{
+    /* border: 1px solid black; */
+    width: 300px;
+    height: 450px;
+    font-size: 10px;
+    margin: 30px 20px 20px 30px;
+}
+
+/* .users-list{
+    border: 1px solid black;
+    border-radius: 10px;
+    margin:20px 8px;
+    width: 280px;
+    height: 80px;
+} */
+
+
+.rounded2{
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.users-list{
+    display: grid;
+    grid-template-rows: repeat(4,20px);
+    grid-template-columns: 50px 120px 70px;
+    padding-top: 10px;
+    text-transform: capitalize;
+}
+
+.sug-user{
+    font-size: 20px;
+}
+
+.subhead{
+    font-size: 10px;
+}
+
+.view-user{
+    font-size: 12px;
+    padding-top: 10px;
+}
+
+.aqua{
+    color: #0095f6;
+}
+
+.aqua:hover{
+    color: #041143;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------- */
+
+/* Add-post Section */
+
+.add-post-container{
+    position: relative;
+    top: 50px;
+    width: 800px;
+    height: 500px;
+    border-radius: 10px;
+    border: 1px solid rgb(240, 237, 237);
+    margin-left: 300px;
+    padding: 10px 140px 0px 10px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.title, .post-container{
+    font-size: 30px;
+    margin: 20px;
+}
+
+.one, .three, .five{
+    font-size: 20px;
+    width: 500px;
+    height: 20px;
+    margin: 10px;
+}
+.two, .four{
+    width: 500px;
+    height: 100px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+button{
+    border: 1px solid rgb(32, 30, 30);
+    border-radius: 10px;
+    background-color: white;
+    cursor: none;
+    font-family: "Outfit";
+    padding: 10px;
+    transition: 240ms;
+}
+
+button:hover{
+    background-color: black;
+    color: #ffffff;
+}
+
+.subpart{
+    margin-left: 350px;
+    width: 300px;
+    height: 300px;
+}
+
+textarea{
+    resize: none;
+}
+
+/* --------------------------------------profile detail page-------------------------------------------------------- */
+.profile-detail{
+    position: relative;
+    top: 70px;
+    left: 30px;
+    height: 500px;
+    width: 250px;
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.obj{
+    margin: 25px;
+}
+
+.button{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 3px;
+    transition: 240ms;
+}
+
+.button:hover{
+    color: white;
+    background-color: black;
+}
+
+.post-list{
+    border: 1px solid black;
+    width: 400px;
+    height: 700px;
+}
+
+.post-frame2{
+    position: absolute;
+    top: 70px;
+    border: 1px solid white;
+    width: 630px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.small{
+    margin: 0;
+    font-size: 12px;
+}

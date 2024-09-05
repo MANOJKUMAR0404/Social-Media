@@ -1,0 +1,9 @@
+Results for 
+{% for users in username_profile_list%}
+<ul>
+    <li>Username : <a href='/profile/{{users.user}}'>{{users.user}}</a></li>
+    <li>Profile Picture : <img src='{{users.profile_img.url}}' /></li>
+    <li>Bio : {{users.bio}}</li>
+    <li>Location : {{users.location}}</li>
+    </ul>
+{% endfor %}
